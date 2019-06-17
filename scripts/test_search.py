@@ -9,8 +9,17 @@ class TestSearch:
         self.driver = init_driver()
         self.page = Page(self.driver)
 
+    @pytest.allure.severity(pytest.allure.severity_level.BLOCKER)
     @pytest.mark.parametrize("keyword", ["xiaoming", "123", "hello"])
     def test_search(self, keyword):
         self.page.setting.click_search()
         self.page.search.input_search(keyword)
         self.page.search.click_back()
+
+    @pytest.allure.severity(pytest.allure.severity_level.CRITICAL)
+    def test_hello(self):
+        assert 0
+
+    @pytest.allure.severity(pytest.allure.severity_level.TRIVIAL)
+    def test_hello1(self):
+        assert 1

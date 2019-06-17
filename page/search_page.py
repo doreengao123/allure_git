@@ -12,10 +12,11 @@ class SearchPage(BaseAction):
     @allure.step(title="输入文字")
     def input_search(self, value):
         allure.attach("输入",value,allure.attach_type.TEXT)
+
         self.input(self.search_edit_text, value)
         allure.attach("截图",self.driver.get_screenshot_as_png(),allure.attach_type.PNG)
+
 
     @allure.step(title="点击返回")
     def click_back(self):
         self.click(self.back_button)
-    
